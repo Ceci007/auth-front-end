@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import AppsIcon from '@material-ui/icons/Apps'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
-import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew'
+import PersonIcon from '@material-ui/icons/Person'
 
 const TopNav = () => {
   return (
@@ -20,7 +20,7 @@ const TopNav = () => {
       </Link>
       <Link href="/register">
         <div className="nav-item">
-          <AccessibilityNewIcon />
+          <PersonIcon />
           <a className="nav-item__link">Signup</a>
         </div>
       </Link>

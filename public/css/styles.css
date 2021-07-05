@@ -12,9 +12,16 @@ html {
   --color-light-grey: #f1f1f1;
   --color-medium-grey: #9a9a9a;
   --color-dark-grey: #3e3e3e;
+
   --color-medium-primary: #448aff;
   --color-light-primary: #83b9ff;
   --color-dark-primary: #005ecb;
+
+  --color-medium-danger: #ef5350;
+  --color-light-danger: #ff867c;
+
+  --color-medium-success: #388e3c;
+  --color-light-success: #6abf69;
 }
 
 body {
@@ -68,4 +75,55 @@ body {
   color: var(--color-medium-primary);
 }
 
+.form-control {
+  box-shadow: 0 2rem 6rem rgba(0,0,0, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  padding: 2rem;
+  margin: 3rem auto;
+  background-color: white;
+  border-radius: 1rem;
+}
 
+input {
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form-control__input {
+  border-radius: 4px;
+  border: 2px solid var(--color-light-grey);
+  margin: 1rem 0;
+  padding: 1rem;
+  text-indent: 1rem;
+  word-break: break-all;
+  width: 100%;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+button:focus {
+  outline: none;
+}
+
+.btn {
+  border-radius: 3rem;
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 3rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.6rem;
+} 
+
+.btn--primary {
+  background-image: linear-gradient(to right, var(--color-light-primary), var(--color-medium-primary));
+}
