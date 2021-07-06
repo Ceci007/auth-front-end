@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -26,6 +28,8 @@ html {
 
 body {
   color: var(--color-dark-grey);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
 }
 
 .header {
@@ -42,6 +46,7 @@ body {
   position: relative;
   z-index: 1000;
   align-items: center;
+  justify-content: center;
   box-sizing: border-box;
 }
 
@@ -50,6 +55,8 @@ body {
   align-self: stretch;
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  text-transform: uppercase;
   font-weight: 600;
   border-bottom: 3px solid transparent;
   transition: all 0.4s ease;
@@ -87,6 +94,11 @@ body {
   border-radius: 1rem;
 }
 
+input::-webkit-input-placeholder {
+  color: var(--color-medium-grey);
+  font-family: 'Raleway', sans-serif;
+}
+
 input {
   border: none;
 }
@@ -98,11 +110,23 @@ input:focus {
 .form-control__input {
   border-radius: 4px;
   border: 2px solid var(--color-light-grey);
-  margin: 1rem 0;
+  margin: 1rem auto;
   padding: 1rem;
   text-indent: 1rem;
   word-break: break-all;
+  width: 95%;
+  transition: all 0.3s ease;
+}
+
+@media(max-width: 75em) {
+  .form-control {
+    width: 90vw;
+  }
+}
+
+.form-control__input:focus {
   width: 100%;
+  border: 2px solid var(--color-light-primary);
 }
 
 button {
@@ -122,8 +146,16 @@ button:focus {
   color: white;
   font-weight: 700;
   font-size: 1.6rem;
+  transition: all 0.3s ease;
 } 
 
 .btn--primary {
-  background-image: linear-gradient(to right, var(--color-light-primary), var(--color-medium-primary));
+  background: linear-gradient(to right bottom, var(--color-light-primary), var(--color-medium-primary));
 }
+
+.btn--primary:hover {
+  background: linear-gradient(to left top, var(--color-light-primary), var(--color-medium-primary));
+  box-shadow: 0 2rem 6rem rgba(0,0,0, 0.3);
+  transform: translateY(0.5rem);
+}
+

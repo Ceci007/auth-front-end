@@ -1,5 +1,4 @@
 import TopNav from '../components/TopNav'
-import 'antd/dist/antd.css'
 import '../public/css/styles.css'
 
 function MyApp({ Component, pageProps }) {
