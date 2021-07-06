@@ -1,16 +1,19 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify';
 import axios from 'axios'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    try {
-      e.preventDefault();
+    e.preventDefault();
     
+    try {
+      setLoading(true);
       const { data } = await axios.post(`http://localhost:8000/api/register`, {
         name,
         email,
@@ -22,8 +25,10 @@ const Register = () => {
       setName('');
       setEmail('');
       setPassword('');
+      setLoading(false);
     } catch(err) {
       toast.error(err.response.data);
+      setLoading(false);
     }
   }
 
@@ -54,7 +59,15 @@ const Register = () => {
           placeholder="Enter password"
           required
         />
-        <button type="submit" className="btn btn--primary">Signup</button>
+        <button 
+          type="submit" 
+          className="btn btn--primary"
+          disabled={!name || !email || !password || loading}
+        >
+          { loading ? 
+            <CircularProgress style={{color: '#fff', width: '15px', height: '15px'}} /> : 
+            'Signup' }
+        </button>
       </form>
     </div>
   );
