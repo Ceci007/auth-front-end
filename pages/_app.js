@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <TopNav />
-      <ToastContainer position="top-center" />
+      <ToastContainer position="top-center" style={{ fontFamily: 'Raleway', fontSize: '1.6rem', lineHeight: 1.8 }} />
       <Component {...pageProps} />
     </>
   )
