@@ -38,6 +38,7 @@ body {
   padding: 3rem 1rem;
 }
 
+/*--------- Navbar -----------*/
 .nav {
   background-color: white;
   display: flex;
@@ -60,11 +61,10 @@ body {
   font-weight: 600;
   border-bottom: 3px solid transparent;
   transition: all 0.4s ease;
+  cursor: pointer;
 }
 
-.nav-item:hover,
-.nav-item::selection,
-.nav-item:active {
+.active {
   background-color: rgba(0,0,0, 0.02);
   align-self: stretch;
   color: var(--color-medium-primary);
@@ -76,12 +76,11 @@ body {
   color: inherit;
 }
 
-.nav-item:hover .nav-item__link,
-.nav-item::selection .nav-item__link,
-.nav-item:active .nav-item__link {
+.active .nav-item__link {
   color: var(--color-medium-primary);
 }
 
+/*--------- Register/Login -----------*/
 .form-control {
   box-shadow: 0 2rem 6rem rgba(0,0,0, 0.3);
   position: relative;
@@ -129,6 +128,7 @@ input:focus {
   border: 2px solid var(--color-light-primary);
 }
 
+/*--------- Button -----------*/
 button {
   border: none;
   background: transparent;
@@ -157,5 +157,16 @@ button:focus {
   background: linear-gradient(to left top, var(--color-light-primary), var(--color-medium-primary));
   box-shadow: 0 2rem 6rem rgba(0,0,0, 0.3);
   transform: translateY(0.5rem);
+}
+
+.text-center {
+  text-align: center;
+  margin: 1.5rem auto;
+  margin-top: 3rem;
+}
+
+.link {
+  color: var(--color-light-primary);
+  font-weight: 600;
 }
 

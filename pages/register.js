@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import { toast } from 'react-toastify';
 import axios from 'axios'
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -14,7 +15,7 @@ const Register = () => {
     
     try {
       setLoading(true);
-      const { data } = await axios.post(`${process.env.NEXT_PUBLIC_API}/register`, {
+      const { data } = await axios.post(`/api/register`, {
         name,
         email,
         password
@@ -68,6 +69,7 @@ const Register = () => {
             <CircularProgress style={{color: '#fff', width: '15px', height: '15px'}} /> : 
             'Signup' }
         </button>
+        <p className="text-center">Already regitered? <Link href="/login"><a className="link">Login</a></Link></p>
       </form>
     </div>
   );
