@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Link from 'next/link'
-import { toast } from 'react-toastify';
+import { Context } from '../context'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 import axios from 'axios'
-import CircularProgress from '@material-ui/core/CircularProgress';
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const { state, dispatch } = useContext(Context);
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,11 +26,17 @@ const Login = () => {
       });
       
       toast.success('Login successful');
-      console.log('Login data', data);
+      dispatch({
+        type: 'LOGIN',
+        payload: data,
+      })
+      window.localStorage.setItem('user', JSON.stringify(data));
 
       setEmail('');
       setPassword('');
       setLoading(false);
+
+      router.push('/');
     } catch(err) {
       toast.error(err.response.data);
       setLoading(false);
