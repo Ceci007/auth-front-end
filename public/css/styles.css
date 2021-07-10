@@ -49,6 +49,22 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  height: 6rem;
+}
+
+.container {
+  display: flex;
+  width: 80vw;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media(max-width: 75em) {
+  .container {
+    width: 100vw;
+    justify-content: center;
+  }
 }
 
 .nav-item {
@@ -67,6 +83,7 @@ body {
 .active {
   background-color: rgba(0,0,0, 0.02);
   align-self: stretch;
+  height: 6rem;
   color: var(--color-medium-primary);
   border-bottom: 3px solid var(--color-medium-primary);
 }
@@ -78,6 +95,60 @@ body {
 
 .active .nav-item__link {
   color: var(--color-medium-primary);
+}
+
+.nav-flex__1, .nav-flex__2, .container {
+  display: flex;
+  align-self: stretch;
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+.dropdown__nav-item {
+  color: var(--color-medium-grey);
+  text-decoration: none;
+  display: flex;
+  text-align: left;
+  transition: all 0.4s ease;
+}
+
+.dropdown .dropdown__content {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 2rem 6rem rgba(0,0,0, 0.3);
+  color: var(--color-medium-grey);
+  border-radius: 0.6rem;
+  top: 6rem;
+  min-width: 14rem;
+  z-index: 2000;
+  transition: all 0.4s ease;
+}
+
+.dropdown__nav-item {
+  display: flex;
+  padding: 1rem;
+  font-size: 1.6rem;
+  padding-left: 2.4rem;
+  text-align: left;
+}
+
+.dropdown__nav-item--active,
+.dropdown__nav-item:hover {
+  background-color: var(--color-light-primary);
+  color: white;
+}
+
+.dropdown__link {
+  margin-left: 1rem;
+}
+
+.dropdown:hover .dropdown__content {
+  display: block;
+  overflow: visible;
 }
 
 /*--------- Register/Login -----------*/
