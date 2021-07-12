@@ -91,16 +91,12 @@ const TopNav = () => {
                     </div>
                 </div>
                 <div className={dropdownActive ? '.dropdown__nav-item--active' : ''}>
-                    <div className="dropdown__nav-item">
-                      <LocalCafeIcon />
-                      <a className="dropdown__link">Link 2</a>
-                    </div>
-                </div>
-                <div className={dropdownActive ? '.dropdown__nav-item--active' : ''}>
-                    <div className="dropdown__nav-item">
-                      <LocalCafeIcon />
-                      <a className="dropdown__link">Link 3</a>
-                    </div>
+                    <Link href="/user">
+                      <div className="dropdown__nav-item">
+                        <LocalCafeIcon />
+                        <a className="dropdown__link">Dashboard</a>
+                      </div>
+                    </Link>
                 </div>
               </div>
             </div>
