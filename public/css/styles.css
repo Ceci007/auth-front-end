@@ -238,7 +238,11 @@ button:focus {
 
 .text-center {
   text-align: center;
-  margin: 1.5rem auto;
+  margin: 0.5rem auto;
+  
+}
+
+.margin-top {
   margin-top: 3rem;
 }
 

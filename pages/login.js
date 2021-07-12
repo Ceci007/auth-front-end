@@ -76,7 +76,8 @@ const Login = () => {
             <CircularProgress style={{color: '#fff', width: '15px', height: '15px'}} /> : 
             'Login' }
         </button>
-        <p className="text-center">Don't have an account? <Link href="/register"><a className="link">Signup</a></Link></p>
+        <p className="text-center margin-top">Don't have an account? <Link href="/register"><a className="link">Signup</a></Link></p>
+        <p className="text-center"><Link href="/forgot-password"><a className="link">Forgot Password?</a></Link></p>
       </form>
     </div>
   );
