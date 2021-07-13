@@ -8,7 +8,7 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
-  const [success, setSuccess] = useState('');
+  const [success, setSuccess] = useState(false);
   const [code, setCode] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,21 +24,49 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
-      setLoading(true);
       const { data } = await axios.post('/api/forgot-password', { email });
       setSuccess(true);
-      toast('Check the secret code we just sent to your email')
+      setEmail('');
+      toast('Check the secret code we just sent to your email');
+      setLoading(false);
     } catch(err) {
+      setEmail('');
       setLoading(false);
       toast.error(err.response.data);
     }
   };
 
+  const handleResetPassword = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const { data } = await axios.post('/api/reset-password', {
+        email,
+        code,
+        newPassword
+      });
+
+      setLoading(false);
+      setEmail('');
+      setCode('');
+      setNewPassword('');
+
+      toast.success('We updated the new password, you can try to login');
+    } catch(err) {
+      setEmail('');
+      setCode('');
+      setNewPassword('');
+      setLoading(false);
+      toast.error(err.response.data);
+    }
+  }
+
   return (
     <div>
-       <form className="form-control" onSubmit={handleSubmit}>
+       <form className="form-control" onSubmit={success ? handleResetPassword : handleSubmit}>
         <input 
           type="email" 
           className="form-control__input" 
@@ -47,6 +75,26 @@ const ForgotPassword = () => {
           placeholder="Enter email"
           required
         />
+        { success && (
+          <>
+            <input 
+              type="text" 
+              className="form-control__input" 
+              value={code} 
+              onChange={e => setCode(e.target.value)} 
+              placeholder="Enter secret code"
+              required
+            />
+            <input 
+              type="password" 
+              className="form-control__input" 
+              value={newPassword} 
+              onChange={e => setNewPassword(e.target.value)} 
+              placeholder="Enter new password"
+              required
+            />
+          </>
+        )}
         <button 
           type="submit" 
           className="btn btn--primary"

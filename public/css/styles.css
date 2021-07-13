@@ -176,6 +176,7 @@ input::-webkit-input-placeholder {
 }
 
 input {
+  color: var(--color-medium-grey);
   border: none;
 }
 

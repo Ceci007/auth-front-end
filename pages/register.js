@@ -31,15 +31,18 @@ const Register = () => {
         email,
         password
       });
-      
-      toast.success('Registration successful. Please login');
 
       setName('');
       setEmail('');
       setPassword('');
       setLoading(false);
+
+      toast.success('Registration successful. Please login');
     } catch(err) {
       toast.error(err.response.data);
+      setName('');
+      setEmail('');
+      setPassword('');
       setLoading(false);
     }
   }

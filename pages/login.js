@@ -30,7 +30,6 @@ const Login = () => {
         password
       });
       
-      toast.success('Login successful');
       dispatch({
         type: 'LOGIN',
         payload: data,
@@ -41,10 +40,14 @@ const Login = () => {
       setPassword('');
       setLoading(false);
 
+      toast.success('Login successful');
+
       router.push('/');
     } catch(err) {
-      toast.error(err.response.data);
+      setEmail('');
+      setPassword('');
       setLoading(false);
+      toast.error(err.response.data);
     }
   }
 
